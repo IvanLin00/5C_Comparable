@@ -1,7 +1,7 @@
 /**
   Represent a point, using Cartesian coordinates
  */
-public class Point{
+public class Point implements Comparable{
     private double xcor;
     private double ycor;
     
@@ -12,12 +12,14 @@ public class Point{
       by the parameter.
      */
     public int compareTo( Object otherObj){
-        /* Use the Pythagorean theorem.
+         /* Use the Pythagorean theorem.
            Double.compare helped me.
            If the math is a problem, use a simpler
            relationship, like "higher is bigger"
            and change the tests accordingly */
-        return 0; // temp: all Points are One
+		 Point otherPoint = (Point) otherObj;
+		 return (int)(Math.sqrt(Math.pow(xcor,2) + Math.pow(ycor,2)) - Math.sqrt(Math.pow(otherPoint.xcor,2) + Math.pow(otherPoint.ycor,2)));
+         
     }
 
     // -------- previously-written code ----------
